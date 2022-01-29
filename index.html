@@ -5,6 +5,7 @@
     <!-- Meta Tags Obligatoire -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="static/img/favicon.ico">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -12,351 +13,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Neonderthaw&family=Pacifico&display=swap" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css" />
     <title>Gilou Modjet Machine</title>
     <!-- ---------------------------------------------------------------------------- -->
-    <style>
-        /*-----------------------------------------------------------------------------------*/
-        .preload {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background: #000;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-transition: opacity .5s;
-            transition: opacity .5s;
-            z-index: 9999;
-        }
-
-        .preload .lds-ellipsis {
-            display: inline-block;
-            position: relative;
-            width: 80px;
-            height: 80px;
-        }
-
-        .preload .lds-ellipsis div {
-            position: absolute;
-            top: 33px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: #fff;
-            -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
-            animation-timing-function: cubic-bezier(0, 1, 1, 0);
-        }
-
-        .preload .lds-ellipsis div:nth-child(1) {
-            left: 8px;
-            -webkit-animation: lds-ellipsis1 0.6s infinite;
-            animation: lds-ellipsis1 0.6s infinite;
-        }
-
-        .preload .lds-ellipsis div:nth-child(2) {
-            left: 8px;
-            -webkit-animation: lds-ellipsis2 0.6s infinite;
-            animation: lds-ellipsis2 0.6s infinite;
-        }
-
-        .preload .lds-ellipsis div:nth-child(3) {
-            left: 32px;
-            -webkit-animation: lds-ellipsis2 0.6s infinite;
-            animation: lds-ellipsis2 0.6s infinite;
-        }
-
-        .preload .lds-ellipsis div:nth-child(4) {
-            left: 56px;
-            -webkit-animation: lds-ellipsis3 0.6s infinite;
-            animation: lds-ellipsis3 0.6s infinite;
-        }
-
-        @-webkit-keyframes lds-ellipsis1 {
-            0% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-
-            100% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-
-        @keyframes lds-ellipsis1 {
-            0% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-
-            100% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-
-        @-webkit-keyframes lds-ellipsis3 {
-            0% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-
-            100% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-        }
-
-        @keyframes lds-ellipsis3 {
-            0% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-
-            100% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-        }
-
-        @-webkit-keyframes lds-ellipsis2 {
-            0% {
-                -webkit-transform: translate(0, 0);
-                transform: translate(0, 0);
-            }
-
-            100% {
-                -webkit-transform: translate(24px, 0);
-                transform: translate(24px, 0);
-            }
-        }
-
-        @keyframes lds-ellipsis2 {
-            0% {
-                -webkit-transform: translate(0, 0);
-                transform: translate(0, 0);
-            }
-
-            100% {
-                -webkit-transform: translate(24px, 0);
-                transform: translate(24px, 0);
-            }
-        }
-
-        .preload-finish {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /*-----------------------------------------------------------------------------------*/
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.8);
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        .navbar .navbar-brand {
-            font-family: 'Sedgwick Ave', cursive;
-            font-weight: 900;
-            font-size: 30px;
-            color: white !important;
-        }
-
-        .navbar .nav-link {
-            text-align: center;
-            color: white !important;
-            border-bottom: .5px solid white;
-            font-size: 18px;
-        }
-
-        .navbar .navbar-toggler {
-            border: none;
-        }
-
-        .navbar .custom-toggler .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-        }
-
-        /*-----------------------------------------------------------------------------------*/
-        .jumbo-hero {
-            height: 80vh;
-            background-image: url("static/img/jumbo.jpg");
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .jumbo-hero h1 {
-            color: #fb86cc;
-            font-family: "Epilogue", sans-serif;
-            font-weight: 900;
-            font-size: 3em;
-        }
-
-        .mb-set {
-            margin-bottom: 100px;
-        }
-
-        /*-----------------------------------------------------------------------------------*/
-
-
-
-        #galleries .photo-1 {
-            width: 100%;
-        }
-
-        #galleries .photo-2 {
-            width: 100%;
-            height: 300px;
-        }
-
-        #galleries .photo-3 {
-            width: 100%;
-            height: 250px;
-        }
-
-        #galleries .photo-4 {
-            width: 100%;
-            height: 300px;
-        }
-
-        #galleries .photo-5 {
-            width: 100%;
-            height: 300px;
-        }
-
-        #galleries .photo-6 {
-            width: 100%;
-            height: 300px;
-        }
-
-        #galleries .photo-7 {
-            width: 100%;
-            height: 300px;
-        }
-
-        /*-----------------------------------------------------------------------------------*/
-
-        #event .jumbotron {
-            height: 85%;
-            background-image: url("static/img/event.jpg");
-            background-size: cover;
-            background-attachment: fixed;
-            margin-bottom: 50px;
-            min-height: 650px
-        }
-
-        #event .tour-title {
-            font-size: 45px;
-            font-family: "Finger Paint", cursive;
-            color: #fff;
-        }
-
-        #event .tour-date {
-            text-transform: uppercase;
-        }
-
-        #event a {
-            border-radius: 0px;
-        }
-
-
-        /*-----------------------------------------------------------------------------------*/
-
-
-        #contact .jumbotron {
-            background: transparent;
-        }
-
-        #contact .icon {
-            font-size: 50px !important;
-        }
-
-        #contact .fa-instagram:hover {
-            background: #d6249f;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        #contact .fa-facebook:hover {
-            color: #3b5998;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        #contact .fa-twitter:hover {
-            color: #00acee;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        #contact .fa-spotify:hover {
-            color: #1DB954;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        #contact .fa-youtube:hover {
-            color: #FF0000;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        #contact .fa-deezer:hover {
-            background: linear-gradient(45deg, #ff0000, #ffed00, #ff0092, #c2ff00, #00c7f2, #c1f1fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        #contact a {
-            color: black;
-            text-decoration: none;
-        }
-
-        #contact span {
-            font-family: "Epilogue", sans-serif;
-            font-weight: 700;
-        }
-
-        /*-----------------------------------------------------------------------------------*/
-        #footer {
-            background-color: #000;
-            border-top: .3px solid gray;
-        }
-
-        #footer p {
-            color: #fff;
-            padding-top: 18px;
-        }
-    </style>
-
 </head>
 
 
 <body class="main">
+    <!-- ---------------------------------------------------------------------------- -->
+    <!-- Chargement -->
+    <!-- ---------------------------------------------------------------------------- -->
     <div class="preload">
         <div class="lds-ellipsis">
             <div></div>
@@ -368,7 +40,6 @@
     <!-- ---------------------------------------------------------------------------- -->
     <!-- Navbar -->
     <!-- ---------------------------------------------------------------------------- -->
-
     <nav class="navbar fixed-top navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Gilou Modjet Machine</a>
@@ -419,7 +90,7 @@
     <!-- ---------------------------------------------------------------------------- -->
     <section id="about" class="mb-set">
         <div class="container">
-            <h2 class="text-center">A propos de <span>Gilou</span></h2>
+            <h2 class="text-center title">A propos de <span>Gilou</span></h2>
             <hr>
             <div class="row">
                 <div class="col-md-4">
@@ -476,7 +147,7 @@
     <!-- ---------------------------------------------------------------------------- -->
     <section id="albums" class="mb-set">
         <div class="container">
-            <h2 class="text-center">Les Derniers Tubes</h2>
+            <h2 class="text-center title">Les Derniers Tubes</h2>
             <hr>
             <div class="row">
                 <div class="col-md-3 mb-2 col-6">
@@ -503,7 +174,7 @@
     <!-- ---------------------------------------------------------------------------- -->
     <!-- Gallerie -->
     <!-- ---------------------------------------------------------------------------- -->
-    <h2 class="text-center">Le Coin des Voyeurs</h2>
+    <h2 class="text-center title">Le Coin des Voyeurs</h2>
     <p class="text-center">
         Pour toutes les filles et les garçons qui sont folles de son corps si sensuel et de sa
         moustache frémissante.
