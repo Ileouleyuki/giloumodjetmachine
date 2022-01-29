@@ -19,6 +19,11 @@
     src: url("../fonts/shagade.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Gravity";
+    src: url("../fonts/gravity.ttf") format("truetype");
+}
+
 
 body {
     font-family: "Albas", cursive;
@@ -220,7 +225,7 @@ body {
 }
 
 .jumbo-hero h1 {
-    color: #fb86cc;
+    color: #f837ab;
     font-family: "Neonderthaw", cursive;
     font-weight: 900;
     font-size: 5em;
@@ -280,8 +285,8 @@ body {
 
 #event .tour-title {
     font-size: 145px;
-    font-family: "Disko";
-    color: #f55bb7;
+    font-family: "Gravity";
+    color: #e7319f;
 }
 
 #event .tour-date {
