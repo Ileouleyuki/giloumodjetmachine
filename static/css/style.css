@@ -8,15 +8,27 @@
     src: url("../fonts/disko_ot.otf") format("opentype");
 }
 
-body{
-    font-family: '', cursive;
-    background-color: #000;
-    color: #fff;
+@font-face {
+    font-family: "Albas";
+    src: url("../fonts/albas.ttf") format("truetype");
 }
-.title{
+
+
+@font-face {
+    font-family: "Shagade";
+    src: url("../fonts/shagade.ttf") format("truetype");
+}
+
+
+body {
+    font-family: "Albas", cursive;
+    background-color: #000;
+    color: rgb(212, 207, 207);
+}
+.title {
     font-family: "Budmo Jiggler";
-    padding-top:50px;
-    font-size:52px
+    padding-top: 20px;
+    font-size: 52px;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -35,8 +47,8 @@ body{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-transition: opacity .5s;
-    transition: opacity .5s;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
     z-index: 9999;
 }
 
@@ -162,13 +174,12 @@ body{
 /*-----------------------------------------------------------------------------------*/
 .navbar {
     background-color: rgba(0, 0, 0, 0.8);
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 }
 
 .navbar .navbar-brand {
-    
-    font-family: 'Budmo Jiggler', cursive;
+    font-family: "Budmo Jiggler", cursive;
     font-weight: 900;
     font-size: 30px;
     color: white !important;
@@ -177,7 +188,7 @@ body{
 .navbar .nav-link {
     text-align: center;
     color: white !important;
-    border-bottom: .5px solid white;
+    border-bottom: 0.5px solid white;
     font-size: 18px;
 }
 
@@ -210,7 +221,7 @@ body{
 
 .jumbo-hero h1 {
     color: #fb86cc;
-    font-family: 'Neonderthaw', cursive;
+    font-family: "Neonderthaw", cursive;
     font-weight: 900;
     font-size: 5em;
 }
@@ -220,8 +231,6 @@ body{
 }
 
 /*-----------------------------------------------------------------------------------*/
-
-
 
 #galleries .photo-1 {
     width: 100%;
@@ -261,31 +270,51 @@ body{
 
 #event .jumbotron {
     height: 85%;
-    background-image: url("../img/test.jpg");
+    background-image: url("../img/event.jpg");
     background-size: cover;
     background-attachment: fixed;
     margin-bottom: 50px;
-    min-height: 650px
-
+    min-height: 650px;
+    color: rgb(253, 252, 252);
 }
 
 #event .tour-title {
     font-size: 145px;
     font-family: "Disko";
-    color: rgb(20, 20, 20);
+    color: rgb(253, 252, 252);
 }
 
 #event .tour-date {
     text-transform: uppercase;
+    color: rgb(253, 252, 252);
+}
+
+#event p {
+    font-size: 25px;
 }
 
 #event a {
     border-radius: 0px;
 }
 
+#days {
+    font-size: 50px;
+    color: #db4844;
+  }
+  #hours {
+    font-size: 50px;
+    color: #f07c22;
+  }
+  #minutes {
+    font-size: 50px;
+    color: #f6da74;
+  }
+  #seconds {
+    font-size: 50px;
+    color: #abcd58;
+  }
 
 /*-----------------------------------------------------------------------------------*/
-
 
 #contact .jumbotron {
     background: transparent;
@@ -297,7 +326,7 @@ body{
 
 #contact .fa-instagram:hover {
     background: #d6249f;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-transition: 0.5s;
@@ -317,13 +346,13 @@ body{
 }
 
 #contact .fa-spotify:hover {
-    color: #1DB954;
+    color: #1db954;
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
 #contact .fa-youtube:hover {
-    color: #FF0000;
+    color: #ff0000;
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }
@@ -349,7 +378,7 @@ body{
 /*-----------------------------------------------------------------------------------*/
 #footer {
     background-color: #000;
-    border-top: .3px solid gray;
+    border-top: 0.3px solid gray;
 }
 
 #footer p {
